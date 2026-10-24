@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rebutting Plantinga's Modal Ontological Argument</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --text: #1a1a1a;
+      --muted: #6f6a60;
+      --line: #d9d4c7;
+      --tag: #7a3b2e;
+      --box: #ebe6d9;
+      --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1.9;
+      border-left: 12px solid #c9c6bf;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    .back {
+      display: inline-block; margin-top: 28px;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--tag); text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+
+    header { padding: 36px 0 28px; border-bottom: 1px solid var(--line); }
+    h1 {
+      font-weight: 400; font-size: clamp(2.3rem, 8vw, 3.6rem);
+      line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 26px;
+    }
+    .meta {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); line-height: 1;
+    }
+    .tag { border: 1px solid var(--line); color: var(--tag); padding: 12px 16px; letter-spacing: .14em; }
+
+    /* ---------- Version toggle ---------- */
+    .toggle { display: flex; margin: 28px 0 0; border: 1px solid var(--line); width: 100%; }
+    .toggle button {
+      flex: 1; padding: 14px 10px; border: 0; background: transparent; cursor: pointer;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); line-height: 1.3;
+    }
+    .toggle button + button { border-left: 1px solid var(--line); }
+    .toggle button.active { background: var(--tag); color: #fff; }
+    .toggle button:not(.active):hover { color: var(--tag); }
+
+    .version { display: none; padding: 12px 0 40px; }
+    .version.show { display: block; }
+
+    h2 { font-weight: 600; font-size: 1.65rem; line-height: 1.25; margin: 48px 0 8px; }
+    h3 { font-weight: 600; font-size: 1.3rem; line-height: 1.3; margin: 32px 0 4px; }
+    p { margin: 0 0 22px; }
+    ul, ol { margin: 8px 0 22px; padding-left: 1.4em; }
+    li { margin-bottom: 6px; padding-left: 4px; }
+    .intro { color: var(--muted); font-style: italic; margin-top: 28px; }
+
+    /* ---------- Formal blocks ---------- */
+    .formal-box {
+      margin: 8px 0 22px; padding: 18px 22px;
+      background: var(--box); border-left: 4px solid var(--tag);
+      font-family: var(--mono); font-size: .92rem; line-height: 1.9;
+      overflow-x: auto;
+    }
+    .formal-box .gap { display: block; height: 10px; }
+    .formal-box i { color: var(--muted); font-style: normal; font-family: var(--serif); font-size: 1.05rem; }
+
+    /* ---------- Tables ---------- */
+    .table-wrap { overflow-x: auto; margin: 12px 0 28px; }
+    table { width: 100%; border-collapse: collapse; font-size: 1.05rem; line-height: 1.5; }
+    th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    th {
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--tag); border-bottom: 2px solid var(--tag);
+    }
+    td.m { font-family: var(--mono); font-size: .85rem; }
+
+    .killshot {
+      margin: 48px 0 0; padding: 22px 26px;
+      border: 1px solid var(--tag); border-left-width: 6px;
+      font-size: 1.4rem; line-height: 1.55;
+    }
+    .killshot span {
+      display: block; font-family: var(--mono); font-size: .75rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--tag); margin-bottom: 8px;
+    }
+
+    .summary { margin-top: 48px; padding-top: 8px; border-top: 1px solid var(--line); }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 28px 0 48px;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    footer a { color: var(--tag); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">&larr; All rebuttals</a>
+
+    <header>
+      <h1>Rebutting Plantinga's Modal Ontological Argument</h1>
+      <div class="meta">
+        <span>Saturday, October 24, 2026</span>
+        <span class="tag">Rebuttal</span>
+      </div>
+
+      <div class="toggle" role="tablist">
+        <button id="btn-plain" class="active" role="tab" aria-controls="plain">Plain English</button>
+        <button id="btn-formal" role="tab" aria-controls="formal">Formal Logic</button>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         PLAIN ENGLISH VERSION
+         ===================================================== -->
+    <article id="plain" class="version show">
+
+      <h2>What Plantinga actually argues</h2>
+      <p>Forget &ldquo;existence is a perfection.&rdquo; Plantinga's move is slicker:</p>
+      <ol>
+        <li>It is possible that a maximally great being exists. (Call it MG: a being that is all-powerful, all-knowing, morally perfect, and <em>could not fail to exist</em>.)</li>
+        <li>If MG is even possible, then by definition it exists in every possible world, because necessary existence is part of what &ldquo;maximally great&rdquo; means. A being that exists in some worlds but not others isn't maximally great.</li>
+        <li>So if MG is possible in even one world, it exists in all of them, including ours.</li>
+        <li>Therefore, MG exists.</li>
+      </ol>
+      <p>That's it: one premise (it's possible), one definition (maximal greatness includes necessary existence), and out comes God. It is valid. There is no equivocation, no fishy &ldquo;exists in the understanding,&rdquo; and no Kant problem. This is the version that survives the classic objections.</p>
+      <p><strong>So where does it break?</strong></p>
+
+      <h2>Rebuttal 1: The whole argument rests on one premise nobody can prove</h2>
+      <p>Everything hangs on step 1: is a maximally great being possible?</p>
+      <p>Plantinga himself admits he can't prove it. His move is to say that the premise is not self-evident, but that it is consistent with theism and nobody has shown it to be false. That is not an argument. It is a plea: &ldquo;my premise hasn't been refuted yet.&rdquo;</p>
+      <p>But &ldquo;you haven't refuted my premise&rdquo; is not the same as &ldquo;my premise is true.&rdquo; The atheist can simply say, &ldquo;I don't grant that a maximally great being is possible,&rdquo; and the argument stops dead. It has no way to force that premise on anyone.</p>
+      <p>Imagine someone arguing: &ldquo;It's possible that a maximally great pizza exists, one that necessarily exists in every possible world. Therefore, it exists.&rdquo; You would reply, &ldquo;No, I deny your possibility premise.&rdquo; The same move works against Plantinga. The entire weight of the argument sits on a premise the author concedes he can't establish.</p>
+
+      <h2>Rebuttal 2: The symmetry problem (the killer)</h2>
+      <p>This is the big one. Modal logic cuts both ways.</p>
+      <p>Plantinga says: &ldquo;It's possible that God exists.&rdquo; From that, he derives &ldquo;God necessarily exists.&rdquo; But watch what happens with the mirror-image premise: &ldquo;It's possible that God does not exist.&rdquo;</p>
+      <p>That seems just as plausible, maybe more so. And by the exact same logic:</p>
+      <ul>
+        <li>If it's possible that no maximally great being exists, then there is a possible world where MG is absent.</li>
+        <li>But MG, by definition, exists in every world if it exists in any.</li>
+        <li>So if it is absent from even one world, it is absent from all of them, including ours.</li>
+        <li>Therefore, necessarily, no maximally great being exists.</li>
+      </ul>
+      <p>So we have two parallel arguments:</p>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Theist's argument</th><th>Atheist's argument</th></tr>
+          <tr><td class="m">&#9671;(God exists)</td><td class="m">&#9671;(no God exists)</td></tr>
+          <tr><td class="m">&rarr; &#9723;(God exists)</td><td class="m">&rarr; &#9723;(no God exists)</td></tr>
+          <tr><td class="m">&rarr; God exists</td><td class="m">&rarr; no God exists</td></tr>
+        </table>
+      </div>
+
+      <p>Both are valid by the same modal rules. The argument form itself gives you no reason to prefer one over the other. Plantinga's response is essentially that the theist finds the first premise plausible, the atheist finds the second plausible, and neither has a defeater. But that is a standoff, and a standoff is a loss for a proof.</p>
+      <p>A proof is supposed to force the conclusion on anyone who accepts the premises. This argument only works if you already lean toward accepting its premise. It is not a proof of God; it is a demonstration that theism is internally consistent. That is a much weaker claim.</p>
+
+      <h2>Rebuttal 3: &ldquo;Possible&rdquo; is doing illegitimate work</h2>
+      <p>Plantinga needs metaphysical possibility, which is real possibility in the structure of reality. But the only thing he actually has is conceivability: we can form the concept without an obvious contradiction.</p>
+      <p>Those are not the same thing. We can conceive of:</p>
+      <ul>
+        <li>A round square (not really, but we can say the words)</li>
+        <li>Water that isn't H<sub>2</sub>O (conceivable before chemistry, metaphysically impossible)</li>
+        <li>A universe with different laws of physics</li>
+        <li>A being that is both perfectly just and perfectly merciful in contradictory ways</li>
+      </ul>
+      <p>Conceivability is a psychological fact about us. Metaphysical possibility is a fact about reality. You can't get from &ldquo;I can picture it&rdquo; to &ldquo;it's genuinely possible.&rdquo; The atheist grants that MG is conceivable but denies that conceivability entails real possibility, and Plantinga has no argument to bridge that gap.</p>
+
+      <h2>Rebuttal 4: The concept of &ldquo;maximal greatness&rdquo; may be incoherent</h2>
+      <p>The argument assumes &ldquo;maximally great being&rdquo; is a coherent package: omnipotent, omniscient, morally perfect, and necessarily existing. But maybe it isn't.</p>
+      <ul>
+        <li><strong>Omnipotence paradox:</strong> can God create a stone so heavy he can't lift it? If yes, he can't lift it, so he isn't omnipotent. If no, there is something he can't create, so he isn't omnipotent. (There are replies, but the coherence is contested, not obvious.)</li>
+        <li><strong>Omniscience and free will:</strong> if God knows infallibly what you will do, can you do otherwise?</li>
+        <li><strong>Moral perfection and the problem of evil:</strong> if God is all-powerful and all-good, why is there suffering? (Again, replies exist, but the coherence is disputed.)</li>
+        <li><strong>Necessary existence itself:</strong> is &ldquo;exists in every possible world&rdquo; a coherent property, or is it a pseudo-property like &ldquo;is the largest number&rdquo;?</li>
+      </ul>
+      <p>If any of these undermine the coherence of MG, then step 1 fails. This is not because MG isn't possible, but because the concept doesn't pick out anything coherent to be possible in the first place. Plantinga asserts coherence; he doesn't argue for it.</p>
+
+      <h2>Rebuttal 5: Even if it works, it proves almost nothing religiously</h2>
+      <p>Suppose you grant the whole argument. What do you get?</p>
+      <p><em>&ldquo;There exists, in every possible world, a being that is omnipotent, omniscient, and morally perfect.&rdquo;</em></p>
+      <p>That's it. That's the conclusion. Notice what's missing:</p>
+      <ul>
+        <li>No Trinity</li>
+        <li>No incarnation</li>
+        <li>No revelation</li>
+        <li>No personal relationship</li>
+        <li>No answer to prayer</li>
+        <li>No scripture</li>
+        <li>No specific religion</li>
+      </ul>
+      <p>The God of Plantinga's argument is a philosophical abstraction, the bare minimum of theism. The atheist can grant the conclusion and still deny everything that matters to actual religious believers. So even the theist who wins the argument gets far less than they were fighting for. The argument proves a &ldquo;God&rdquo; that no one actually worships.</p>
+
+      <h2>Rebuttal 6: The &ldquo;no defeater&rdquo; move is epistemically cheating</h2>
+      <p>Plantinga's fallback is that the theist is rational in accepting P1 because she has no defeater for it. Fine, but that is a claim about rationality, not truth. A belief can be rational and false. The question isn't &ldquo;is the theist allowed to believe this?&rdquo; but &ldquo;is this premise true?&rdquo; Plantinga quietly shifts from truth to rational acceptability, and those are different games.</p>
+      <p>The atheist is equally rational in accepting P1&prime; (&ldquo;it's possible no God exists&rdquo;). Both are rational, but both can't be true. Rationality symmetry doesn't break the tie. It just shows that the argument can't break it either.</p>
+
+      <div class="summary">
+        <h2>The one-paragraph version</h2>
+        <p>Plantinga's argument is valid, elegant, and immune to the classic objections, but it is a symmetry, not a proof. The same modal logic that turns &ldquo;God is possible&rdquo; into &ldquo;God necessarily exists&rdquo; turns &ldquo;no God is possible&rdquo; into &ldquo;no God necessarily exists.&rdquo; Both premises are equally conceivable, equally unprovable, and equally rational to accept. So the argument doesn't force theism on a neutral party. It only shows that if you already accept the theist's possibility premise, the conclusion follows. That is a consistency check, not a proof. The argument is a mirror: theists see God in it, atheists see his absence, and the mirror itself doesn't tell you which reflection is real.</p>
+      </div>
+
+      <h2>Scorecard: Plantinga vs. the objections</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Objection</th><th>Verdict</th></tr>
+          <tr><td>Kant (existence isn't a predicate)</td><td>Misses. Plantinga uses necessary existence, not existence.</td></tr>
+          <tr><td>Gaunilo's island</td><td>Blocked. Islands can't be necessarily existing.</td></tr>
+          <tr><td>&ldquo;Exists in the understanding&rdquo;</td><td>Irrelevant. It is not used.</td></tr>
+          <tr><td>P1 unproven</td><td>Real weakness, and Plantinga concedes it.</td></tr>
+          <tr><td>Symmetry (P1 vs. P1&prime;)</td><td><strong>Strongest.</strong> The argument proves nothing on its own.</td></tr>
+          <tr><td>Conceivability &ne; possibility</td><td>Strong. Blocks the inference to P1.</td></tr>
+          <tr><td>Coherence of MG</td><td>Live. Depends on other debates.</td></tr>
+          <tr><td>Proves only bare theism</td><td>True but not fatal. It is a scope limitation, not a refutation.</td></tr>
+        </table>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         FORMAL LOGIC VERSION
+         ===================================================== -->
+    <article id="formal" class="version">
+
+      <h2>Setup: the vocabulary</h2>
+      <p>Let:</p>
+      <div class="formal-box">
+        W &nbsp;&nbsp;&nbsp;= the set of possible worlds<br>
+        Max(x) = &ldquo;x is a maximally excellent being&rdquo;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(omniscient, omnipotent and morally perfect at w)<br>
+        Gr(x) = &ldquo;x is maximally great&rdquo;<br>
+        &#9723; &nbsp;&nbsp;&nbsp;&nbsp;= &ldquo;it is necessarily the case that&rdquo; (true in all worlds)<br>
+        &#9671; &nbsp;&nbsp;&nbsp;&nbsp;= &ldquo;it is possible that&rdquo; (true in some world)<br>
+        E!x &nbsp;= &ldquo;x exists&rdquo;
+      </div>
+
+      <p><strong>Key definition (Plantinga's):</strong></p>
+      <div class="formal-box">
+        D1. Gr(x) &harr; &#9723;(E!x &rarr; Max(x)) &and; &#9723;(E!x)
+      </div>
+      <p>x is maximally great iff (i) in every world where x exists, x is maximally excellent, and (ii) x exists in every world.</p>
+      <p>The argument only needs the <em>possibility</em> of a maximally great being.</p>
+
+      <h2>The argument</h2>
+      <div class="formal-box">
+        P1. &#9671;(&exist;x Gr(x))
+        <br><i>&nbsp;It is possible that a maximally great being exists. (The controversial premise.)</i>
+        <span class="gap"></span>
+        P2. &#9671;(&exist;x Gr(x)) &rarr; &#9723;(&exist;x Gr(x))
+        <br><i>&nbsp;If a maximally great being is possible, then it is necessary. (Follows from D1.)</i>
+        <span class="gap"></span>
+        C. &nbsp;&#9723;(&exist;x Gr(x))
+        <br><i>&nbsp;Therefore, necessarily, a maximally great being exists. (P1, P2, modus ponens.)</i>
+        <span class="gap"></span>
+        C&prime;. &exist;x Gr(x)
+        <br><i>&nbsp;Therefore, a maximally great being exists. (From C by the T axiom: &#9723;&phi; &rarr; &phi;.)</i>
+      </div>
+
+      <h2>The derivation in detail (why P2 holds)</h2>
+      <p>Suppose, for the sake of the conditional, that &#9671;(&exist;x Gr(x)). Then there is some world w where some being g is maximally great. By D1, Gr(g) means:</p>
+      <ul>
+        <li>(i) &#9723;(E!g &rarr; Max(g)): in every world, if g exists, g is maximally excellent;</li>
+        <li>(ii) &#9723;(E!g): g exists in every world.</li>
+      </ul>
+      <p>From (ii), g exists in every world. So in every world, &exist;x Gr(x), because g itself is maximally great in every world (by (i) and (ii) together). Hence &#9723;(&exist;x Gr(x)).</p>
+      <p>P2 is not an extra premise. It is a theorem given D1. That is the elegant part. So the whole argument reduces to:</p>
+      <div class="formal-box">
+        P1. &#9671;(&exist;x Gr(x))<br>
+        &there4; C. &nbsp;&#9723;(&exist;x Gr(x)) &nbsp;&mdash; by D1<br>
+        &there4; C&prime;. &exist;x Gr(x) &nbsp;&mdash; by T
+      </div>
+
+      <h2>Why this is much harder to kill than Anselm's</h2>
+      <ol>
+        <li><strong>No &ldquo;existence is a predicate&rdquo; move.</strong> Plantinga doesn't say existence is a perfection. He says <em>necessary</em> existence is. Kant's objection targets the wrong thing: necessary existence is a modal property, and modal properties are legitimately greatness-making (a being that can't fail to exist is plausibly greater than one that can).</li>
+        <li><strong>No &ldquo;exists in the understanding&rdquo; move.</strong> The argument never trades on a fishy mode of existence. It's clean modal logic: possibility in, necessity out.</li>
+        <li><strong>The parody is blocked.</strong> Gaunilo's island fails because a &ldquo;maximally great island&rdquo; can't include necessary existence, since islands are contingent, material things. The definition of maximal greatness is only coherent for a being that could exist necessarily. (This is the standard reply, and it's decent.)</li>
+        <li><strong>It's valid.</strong> No equivocation on &ldquo;greater,&rdquo; no smuggled premise. If P1 is true, C follows by the logic of S5.</li>
+      </ol>
+
+      <h2>Where it actually breaks</h2>
+      <p>The fight is now entirely over P1: &#9671;(&exist;x Gr(x)). Is a maximally great being possible?</p>
+
+      <h3>Rebuttal A: P1 is not obviously true, and it's the whole argument</h3>
+      <p>Plantinga admits this. He concedes that P1 is not self-evident, but says it is consistent with theism and has no known defeat. That is not an argument for P1. It is a plea that nobody has refuted it. The atheist can simply deny P1: &ldquo;I don't grant that a maximally great being is possible.&rdquo; The argument then has no purchase. Everything rides on a premise Plantinga explicitly says he can't prove.</p>
+
+      <h3>Rebuttal B: The symmetry problem (the strongest objection)</h3>
+      <p>Modal logic is symmetric here. Consider:</p>
+      <div class="formal-box">
+        P1&prime;. &#9671;(&not;&exist;x Gr(x))
+        <br><i>&nbsp;It is possible that no maximally great being exists.</i>
+      </div>
+      <p>Is P1&prime; true? It seems just as plausible as P1. And by the same modal logic:</p>
+      <div class="formal-box">
+        &#9671;(&not;&exist;x Gr(x)) &rarr; &#9723;(&not;&exist;x Gr(x))
+      </div>
+      <p>If it's possible that no maximally great being exists, then necessarily none does. Does that inference hold? Yes. If &#9671;(&not;&exist;x Gr(x)), then there is a world w where no maximally great being exists. But if a maximally great being existed in any world, it would exist in all worlds (by D1). So if it fails to exist in one world, it fails in all. Hence the conditional.</p>
+      <p>So we have a perfect symmetry:</p>
+      <div class="formal-box">
+        &#9671;(&exist;x Gr(x)) &nbsp;&rarr; &#9723;(&exist;x Gr(x)) &nbsp;&rarr; &exist;x Gr(x)<br>
+        &#9671;(&not;&exist;x Gr(x)) &rarr; &#9723;(&not;&exist;x Gr(x)) &rarr; &not;&exist;x Gr(x)
+      </div>
+      <p>Both conditionals are theorems of the same modal system. The argument form gives no reason to accept P1 over P1&prime;. Plantinga's response is that P1 is &ldquo;epistemically possible&rdquo; for the theist and P1&prime; for the atheist, and neither has a defeater, so it's a standoff. But a standoff is a loss for a proof. An argument that only works if you already lean theist isn't a proof; it's a consistency check on theism.</p>
+
+      <h3>Rebuttal C: &ldquo;Possibility&rdquo; is doing illegitimate work</h3>
+      <p>Plantinga needs metaphysical possibility, not epistemic possibility. &ldquo;I can conceive it&rdquo; doesn't entail &ldquo;it's metaphysically possible.&rdquo; We can conceive of round squares and of water that isn't H<sub>2</sub>O, but neither is metaphysically possible. So even granting that a maximally great being is conceivable, that doesn't give you &#9671;(&exist;x Gr(x)) in the sense the argument needs. The atheist grants conceivability, denies metaphysical possibility, and P1 is blocked.</p>
+
+      <h3>Rebuttal D: The definition of maximal greatness may be incoherent</h3>
+      <p>Does &ldquo;maximal greatness,&rdquo; including necessary existence, pick out a coherent property? If necessary existence is not a genuine property, or if &ldquo;maximal excellence&rdquo; (omniscience, omnipotence and moral perfection) is internally inconsistent (the problem of evil, the paradox of omnipotence, etc.), then Gr(x) is an empty predicate and P1 is false. Plantinga owes an argument that the concept is coherent. He asserts it.</p>
+
+      <h3>Rebuttal E: Even if sound, it proves a bare theism</h3>
+      <p>The conclusion is &ldquo;a maximally excellent being exists in every world.&rdquo; That is not the God of any specific religion: no Trinity, no incarnation, no revelation, no personal relationship. It's a philosophical abstraction. So even the theist who accepts the argument gets less than they want, and the atheist can grant C&prime; while denying everything that matters religiously.</p>
+
+      <div class="killshot">
+        <span>The one-line kill shot</span>
+        The argument is valid, but it's a symmetry: the same modal logic that turns &#9671;(God exists) into &#9723;(God exists) turns &#9671;(no God) into &#9723;(no God). P1 and P1&prime; are equipollent, and Plantinga admits he can't prove P1. So the argument is a consistency proof for theism, not a proof of theism.
+      </div>
+
+      <h2>Scorecard</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Objection</th><th>Does it kill Plantinga?</th></tr>
+          <tr><td>Kant (existence isn't a predicate)</td><td>No. It targets Anselm, not necessary existence.</td></tr>
+          <tr><td>Gaunilo's island</td><td>No. Blocked by necessary existence.</td></tr>
+          <tr><td>&ldquo;Exists in the understanding&rdquo;</td><td>No. It is not used.</td></tr>
+          <tr><td>P1 unproven</td><td>Weakens, doesn't refute, but it's the whole argument.</td></tr>
+          <tr><td>Symmetry (P1 vs. P1&prime;)</td><td><strong>Strongest.</strong> Shows the form proves nothing on its own.</td></tr>
+          <tr><td>Conceivability &ne; metaphysical possibility</td><td>Strong. Blocks the inference to P1.</td></tr>
+          <tr><td>Coherence of maximal greatness</td><td>Live. Depends on other debates.</td></tr>
+        </table>
+      </div>
+    </article>
+
+    <footer>
+      <a href="index.html">&larr; Back to all rebuttals</a>
+    </footer>
+
+  </div>
+
+  <script>
+    // Switch between Plain English and Formal Logic
+    var plain = document.getElementById('plain'),
+        formal = document.getElementById('formal'),
+        bPlain = document.getElementById('btn-plain'),
+        bFormal = document.getElementById('btn-formal');
+
+    function show(which) {
+      var isFormal = which === 'formal';
+      formal.classList.toggle('show', isFormal);
+      plain.classList.toggle('show', !isFormal);
+      bFormal.classList.toggle('active', isFormal);
+      bPlain.classList.toggle('active', !isFormal);
+      if (history.replaceState) history.replaceState(null, '', '#' + which);
+    }
+    bPlain.addEventListener('click', function () { show('plain'); });
+    bFormal.addEventListener('click', function () { show('formal'); });
+    if (location.hash === '#formal') show('formal');
+  </script>
+</body>
+</html>

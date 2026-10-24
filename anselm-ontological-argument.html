@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rebutting Anselm's Ontological Argument</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --text: #1a1a1a;
+      --muted: #6f6a60;
+      --line: #d9d4c7;
+      --tag: #7a3b2e;
+      --box: #ebe6d9;
+      --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1.9;
+      border-left: 12px solid #c9c6bf;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    .back {
+      display: inline-block; margin-top: 28px;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--tag); text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+
+    header { padding: 36px 0 28px; border-bottom: 1px solid var(--line); }
+    h1 {
+      font-weight: 400; font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+      line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 26px;
+    }
+    .meta {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); line-height: 1;
+    }
+    .tag { border: 1px solid var(--line); color: var(--tag); padding: 12px 16px; letter-spacing: .14em; }
+
+    /* ---------- Version toggle ---------- */
+    .toggle {
+      display: flex; gap: 0; margin: 28px 0 0;
+      border: 1px solid var(--line); width: 100%;
+    }
+    .toggle button {
+      flex: 1; padding: 14px 10px; border: 0; background: transparent; cursor: pointer;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); line-height: 1.3;
+    }
+    .toggle button + button { border-left: 1px solid var(--line); }
+    .toggle button.active { background: var(--tag); color: #fff; }
+    .toggle button:not(.active):hover { color: var(--tag); }
+
+    .version { display: none; padding: 12px 0 40px; }
+    .version.show { display: block; }
+
+    h2 { font-weight: 600; font-size: 1.65rem; line-height: 1.25; margin: 48px 0 8px; }
+    h3 { font-weight: 600; font-size: 1.3rem; margin: 28px 0 4px; }
+    p { margin: 0 0 22px; }
+    .intro { color: var(--muted); font-style: italic; margin-top: 28px; }
+
+    /* ---------- Formal blocks ---------- */
+    .formal-box {
+      margin: 8px 0 22px; padding: 18px 22px;
+      background: var(--box); border-left: 4px solid var(--tag);
+      font-family: var(--mono); font-size: .92rem; line-height: 1.9;
+      overflow-x: auto;
+    }
+    .formal-box .gap { display: block; height: 10px; }
+    .formal-box i { color: var(--muted); font-style: normal; font-family: var(--serif); font-size: 1.05rem; }
+    .def { font-family: var(--mono); font-size: .92rem; background: var(--box); padding: 1px 6px; }
+
+    ol.steps { padding-left: 1.4em; margin: 8px 0 22px; }
+    ol.steps li { margin-bottom: 8px; padding-left: 6px; }
+
+    .killshot {
+      margin: 48px 0 0; padding: 22px 26px;
+      border: 1px solid var(--tag); border-left-width: 6px;
+      font-size: 1.4rem; line-height: 1.55;
+    }
+    .killshot span {
+      display: block; font-family: var(--mono); font-size: .75rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--tag); margin-bottom: 8px;
+    }
+
+    .summary { margin-top: 48px; padding-top: 8px; border-top: 1px solid var(--line); }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 28px 0 48px;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    footer a { color: var(--tag); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">&larr; All rebuttals</a>
+
+    <header>
+      <h1>Rebutting Anselm's Ontological Argument</h1>
+      <div class="meta">
+        <span>Saturday, October 24, 2026</span>
+        <span class="tag">Rebuttal</span>
+      </div>
+
+      <div class="toggle" role="tablist">
+        <button id="btn-plain" class="active" role="tab" aria-controls="plain">Plain English</button>
+        <button id="btn-formal" role="tab" aria-controls="formal">Formal Logic</button>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         PLAIN ENGLISH VERSION
+         ===================================================== -->
+    <article id="plain" class="version show">
+
+      <p class="intro">No symbols, no quantifiers. Just the actual moves and where they slip.</p>
+
+      <h2>What Anselm actually argues</h2>
+      <ol class="steps">
+        <li>We can conceive of &ldquo;that than which nothing greater can be conceived.&rdquo; Call it G.</li>
+        <li>G exists in our understanding (we just conceived it).</li>
+        <li>It is greater to exist in reality and in the understanding than in the understanding alone.</li>
+        <li>So if G existed only in the understanding, something greater could be conceived (namely, a G that also exists in reality).</li>
+        <li>But nothing greater than G can be conceived, by definition.</li>
+        <li>Therefore, G must exist in reality.</li>
+      </ol>
+      <p>Clean, tidy, and wrong in at least six places.</p>
+
+      <h2>Rebuttal 1: The definition does all the work (it begs the question)</h2>
+      <p>Anselm defines G as the greatest conceivable being, then treats &ldquo;existence&rdquo; as one of the things that makes a being great. But that is the whole ballgame. If existence counts toward greatness, then of course the greatest conceivable being must exist. The conclusion was built into the definition.</p>
+      <p>The atheist's perfectly consistent reply is: &ldquo;Fine, I conceive of G as a concept, a really impressive concept, but I deny that existence is a greatness-making feature. A real pizza isn't &lsquo;greater&rsquo; than an imagined one; it's just real.&rdquo; Anselm needs existence to be a perfection. He never argues for that; he assumes it. The argument only works for someone who already believes the conclusion.</p>
+
+      <h2>Rebuttal 2: Kant &mdash; existence isn't a property</h2>
+      <p>This is the classic. A property adds something to a concept: &ldquo;red,&rdquo; &ldquo;round,&rdquo; &ldquo;powerful.&rdquo; Existence doesn't add anything. It only says whether the concept is instantiated. Compare &ldquo;a hundred dollars in my imagination&rdquo; with &ldquo;a hundred real dollars.&rdquo; The real ones aren't more in content than the imaginary ones; there are just actually a hundred of them. Existence is the positing of the thing, not a feature of the thing.</p>
+      <p>So step 3 (&ldquo;it is greater to exist in reality and in the understanding than in the understanding alone&rdquo;) is false. You can't rank a thing higher for existing, because existing isn't a rung on the greatness ladder. It is whether the thing is on the ladder at all.</p>
+
+      <h2>Rebuttal 3: Gaunilo's parody &mdash; the argument proves too much</h2>
+      <p>Gaunilo's move is devastating in its simplicity: run the exact same argument for a &ldquo;lost island than which no greater island can be conceived.&rdquo; By Anselm's logic, that island must exist. It obviously doesn't. So either the form is invalid or a premise is false.</p>
+      <p>Anselm's comeback was that God is the only being whose existence is necessary, or who has all perfections, so the parody doesn't apply. But notice that he had to add extra theology to block the parody. The bare argument, as stated, generates perfect islands, perfect pizzas, and a greatest conceivable used car. An argument that needs a special exemption for exactly one being, the one you are trying to prove, is not doing the proving. The exemption is the proof.</p>
+
+      <h2>Rebuttal 4: &ldquo;Exists in the understanding&rdquo; is a fishy notion</h2>
+      <p>What does it mean for something to &ldquo;exist in the understanding&rdquo;? For a concept, sure: we have the concept. But Anselm slides from &ldquo;we have the concept of G&rdquo; to &ldquo;G exists in the understanding,&rdquo; as if that were a mode of existence that can be upgraded. It isn't. Having a concept of a thing is a fact about you, not about the thing. The round square exists in my understanding too, and that doesn't give it a toehold on reality.</p>
+      <p>So step 2 is either trivial (we have the concept) or false (concepts don't &ldquo;exist&rdquo; in a way that competes with real existence). Either way, it can't do the work Anselm needs.</p>
+
+      <h2>Rebuttal 5: Conceivability doesn't guarantee coherence</h2>
+      <p>The argument assumes G is a coherent, conceivable thing. But &ldquo;the greatest conceivable being&rdquo; may be like &ldquo;the largest number&rdquo; or &ldquo;the square circle&rdquo;: a phrase that sounds like it picks out something but actually can't. If the concept of G is incoherent (for example, if &ldquo;all perfections&rdquo; turns out to be internally inconsistent, or if necessary existence is not a coherent property), then step 1 fails. There is nothing there to upgrade from understanding to reality.</p>
+      <p>Anselm owes us an argument that G is genuinely conceivable. He doesn't give one. He just asserts that the phrase makes sense because we can say it.</p>
+
+      <h2>Rebuttal 6: The atheist's position is not &ldquo;the fool's&rdquo;</h2>
+      <p>Anselm frames the atheist as someone who says there is no God but secretly has the concept, so the argument can trap him. But the sophisticated atheist isn't confused about the concept. He grants you the concept and denies the inference: &ldquo;Yes, I understand what you mean by G. No, I don't think understanding it entails that it exists. That's just not how concepts work.&rdquo; The argument only lands on a strawman who thinks concepts can't be understood unless they are instantiated.</p>
+
+      <div class="summary">
+        <h2>The one-paragraph version</h2>
+        <p>Anselm's argument works only if you grant that (a) existence is a greatness-making property, (b) &ldquo;existing in the understanding&rdquo; is a real mode of existence that can be upgraded, and (c) G is a coherent concept. Each of these is either false or exactly the point at issue. Drop any one and the argument collapses, and Anselm gives no independent argument for any of them. The ontological argument is a machine that runs only on the fuel of its own conclusion.</p>
+      </div>
+    </article>
+
+
+    <!-- =====================================================
+         FORMAL LOGIC VERSION
+         ===================================================== -->
+    <article id="formal" class="version">
+
+      <h2>Anselm's argument (Proslogion II), formalized</h2>
+      <p>Let:</p>
+      <div class="formal-box">
+        G &nbsp;&nbsp;= &ldquo;a being than which no greater can be conceived&rdquo;<br>
+        U(x) = &ldquo;x exists in the understanding&rdquo;<br>
+        Re(x) = &ldquo;x exists in reality&rdquo;<br>
+        Great(x, y) = &ldquo;x is greater than y&rdquo;
+      </div>
+
+      <div class="formal-box">
+        P1. U(G) <i>&nbsp;G exists in the understanding. (The fool understands the phrase.)</i>
+        <span class="gap"></span>
+        P2. &forall;x[(U(x) &and; &not;Re(x)) &rarr; &exist;y(U(y) &and; Re(y) &and; Great(y, x))]
+        <br><i>&nbsp;Anything that exists only in the understanding is exceeded by something that exists in reality.</i>
+        <span class="gap"></span>
+        P3. &not;&exist;y Great(y, G) <i>&nbsp;Nothing is greater than G. (By definition of G.)</i>
+        <span class="gap"></span>
+        C. &nbsp;Re(G)
+      </div>
+
+      <p><strong>The derivation:</strong> suppose &not;Re(G). Then by P2, something greater than G exists in reality, contradicting P3. So Re(G). &#8718;</p>
+
+      <h2>Rebuttals</h2>
+
+      <h3>1. The definition smuggles in existence (begging the question)</h3>
+      <p>P3 says &ldquo;nothing is greater than G,&rdquo; but greatness is undefined. If &ldquo;greater&rdquo; includes &ldquo;exists in reality,&rdquo; then P2 is true, but P3 is only true if G exists, which is the conclusion. If &ldquo;greater&rdquo; doesn't include existence, P2 is false, because existing in reality isn't a greatness-making property. The argument equivocates on &ldquo;greater.&rdquo;</p>
+      <p>Formally: either the predicate Great is existence-involving (P3 presupposes C) or it isn't (P2 is unsupported). No reading makes both premises true and non-circular.</p>
+
+      <h3>2. Kant's objection: existence is not a predicate</h3>
+      <p>P2 treats Re(x) as a first-order property that can increase greatness. But existence is not a property that adds to a concept. It is the positing of the concept. &ldquo;A hundred real thalers contain no more than a hundred possible thalers.&rdquo;</p>
+      <p>Formally: Re cannot appear inside the greatness-comparison relation without a category error. So P2 is false as stated.</p>
+
+      <h3>3. The parody objection (Gaunilo's island)</h3>
+      <p>The form of the argument is valid but unsound, because it proves too much. Substitute &ldquo;island than which no greater island can be conceived&rdquo; and the same derivation yields a perfect island. Since the conclusion is absurd, a premise must be false.</p>
+      <p>The argument's form gives no principled way to block the parody without already assuming God's unique greatness, which is the thing to be proved.</p>
+
+      <h3>4. The inference fails in free logic</h3>
+      <p>In standard first-order logic, P2's inference requires that G denotes. But if G doesn't exist (the fool's position), the term may be empty, and existential generalization and substitution fail. Anselm needs classical logic's assumption that &ldquo;G&rdquo; refers, but reference is exactly what is at issue.</p>
+      <p>In free logic, the derivation &not;Re(G) &rarr; &exist;y Great(y, G) doesn't go through without &exist;x(x = G), which is the conclusion.</p>
+
+      <h3>5. P2 begs the question against the atheist</h3>
+      <p>P2 says that anything that exists only in the understanding is surpassed by a real counterpart. But the atheist denies there is a real counterpart to G. P2 is only plausible if you already grant that real existence is greater, that is, that G's real existence would be greater, that is, that G could exist in reality. The premise assumes what it needs to prove.</p>
+
+      <h3>6. The &ldquo;conceivability&rdquo; equivocation</h3>
+      <p>&ldquo;Exists in the understanding&rdquo; does no logical work beyond U(G). But U(G) is satisfied by any definite description, including &ldquo;the round square.&rdquo; The move from U(G) to the greatness comparison requires that G be a consistent, instantiable concept, which is precisely what is in dispute.</p>
+      <p>Formally, the argument needs &exist;x(x = G) for the comparison to be well-formed, and that is the conclusion.</p>
+
+      <div class="killshot">
+        <span>One-line kill shot</span>
+        The argument only goes through if &ldquo;greater&rdquo; includes existence (making P3 circular) or if &ldquo;G&rdquo; is guaranteed to refer (making the conclusion a premise).
+      </div>
+    </article>
+
+    <footer>
+      <a href="index.html">&larr; Back to all rebuttals</a>
+    </footer>
+
+  </div>
+
+  <script>
+    // Switch between Plain English and Formal Logic
+    var plain = document.getElementById('plain'),
+        formal = document.getElementById('formal'),
+        bPlain = document.getElementById('btn-plain'),
+        bFormal = document.getElementById('btn-formal');
+
+    function show(which) {
+      var isFormal = which === 'formal';
+      formal.classList.toggle('show', isFormal);
+      plain.classList.toggle('show', !isFormal);
+      bFormal.classList.toggle('active', isFormal);
+      bPlain.classList.toggle('active', !isFormal);
+      if (history.replaceState) history.replaceState(null, '', '#' + which);
+    }
+    bPlain.addEventListener('click', function () { show('plain'); });
+    bFormal.addEventListener('click', function () { show('formal'); });
+    if (location.hash === '#formal') show('formal');
+  </script>
+</body>
+</html>

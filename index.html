@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Argument Rebuttals</title>
+
+  <!-- Serif font (falls back to Georgia if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4f1ea;        /* warm paper */
+      --text: #1a1a1a;
+      --muted: #6f6a60;
+      --line: #d9d4c7;
+      --tag: #7a3b2e;       /* brown-red tag text */
+      --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.8;
+      border-left: 12px solid #c9c6bf;   /* gray side bar */
+    }
+
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    /* ---------- Top ---------- */
+    header { border-bottom: 1px solid var(--line); padding: 56px 0 36px; }
+    h1 {
+      font-weight: 400;
+      font-size: clamp(2.6rem, 9vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0 0 22px;
+    }
+    .subtitle { margin: 0; color: var(--muted); }
+
+    /* ---------- Meta line (date + tag) ---------- */
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .tag {
+      border: 1px solid var(--line);
+      color: var(--tag);
+      padding: 12px 16px;
+      letter-spacing: .14em;
+    }
+
+    /* ---------- Post buttons ---------- */
+    .list { padding: 8px 0 48px; }
+
+    .post {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .post h2 {
+      font-weight: 400;
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      line-height: 1.12;
+      margin: 18px 0 14px;
+      transition: color .15s;
+    }
+    .post p { margin: 0 0 18px; color: #3b3935; }
+    .read {
+      font-family: var(--mono);
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--tag);
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s, letter-spacing .15s;
+    }
+    .read::after { content: " \2192"; }
+
+    .post:hover h2, .post:focus-visible h2 { color: var(--tag); }
+    .post:hover .read, .post:focus-visible .read { border-bottom-color: var(--tag); letter-spacing: .24em; }
+    .post:focus-visible { outline: 2px solid var(--tag); outline-offset: 4px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 48px;
+      font-family: var(--mono);
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header>
+      <h1>Argument Rebuttals</h1>
+      <p class="subtitle">Pick an argument to read the full rebuttal.</p>
+    </header>
+
+    <div class="list">
+
+      <!-- ===== EXAMPLE POST BUTTON ===== -->
+      <a class="post" href="morality-argument.html">
+        <div class="meta">
+          <span>Saturday, October 24, 2026</span>
+          <span class="tag">Rebuttal</span>
+        </div>
+        <h2>Morality Argument for Atheism</h2>
+        <p>"Atheism allows you to be a narcissist, misogynist, racist, homophobic, etc., without consequences."</p>
+        <span class="read">Read rebuttal</span>
+      </a>
+
+      <a class="post" href="anselm-ontological-argument.html">
+        <div class="meta">
+          <span>Saturday, October 24, 2026</span>
+          <span class="tag">Rebuttal</span>
+        </div>
+        <h2>Rebutting Anselm's Ontological Argument</h2>
+        <p>Six rebuttals to Anselm's Proslogion II, in a plain-English version and a formal logic version.</p>
+        <span class="read">Read rebuttal</span>
+      </a>
+
+      <a class="post" href="plantinga-modal-argument.html">
+        <div class="meta">
+          <span>Saturday, October 24, 2026</span>
+          <span class="tag">Rebuttal</span>
+        </div>
+        <h2>Rebutting Plantinga's Modal Ontological Argument</h2>
+        <p>Why the argument is valid but proves nothing on its own: the symmetry problem, in plain-English and formal logic versions.</p>
+        <span class="read">Read rebuttal</span>
+      </a>
+
+      <!-- ===== TO ADD A NEW ONE: copy everything from <a class="post" ...> to </a>
+           (the block above), paste it right below this comment, then change:
+             1. href="..."       -> link or file of your new rebuttal page / PDF
+             2. the date and tag (tag can be Rebuttal, Essay, etc.)
+             3. the <h2> title
+             4. the <p> description (or delete that line)  -->
+
+    </div>
+
+    <footer>Your Blog Name</footer>
+
+  </div>
+
+</body>
+</html>
