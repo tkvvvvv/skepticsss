@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>trakver09 | Profile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --text: #1a1a1a;
+      --muted: #6f6a60;
+      --line: #d9d4c7;
+      --tag: #7a3b2e;
+      --box: #ebe6d9;
+      --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1.8;
+      border-left: 12px solid #c9c6bf;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    .back {
+      display: inline-block; margin-top: 28px;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--tag); text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+
+    /* ---------- Top: picture in the middle ---------- */
+    header { text-align: center; padding: 40px 0 36px; border-bottom: 1px solid var(--line); }
+
+    .pfp {
+      position: relative;
+      width: 170px; height: 170px;
+      margin: 0 auto 26px;
+      border-radius: 50%;
+      border: 3px solid var(--tag);
+      outline: 1px solid var(--line);
+      outline-offset: 6px;
+      background: var(--box);
+      overflow: hidden;
+      display: grid; place-items: center;
+    }
+    .pfp img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .pfp .ph {
+      font-family: var(--mono); font-size: .72rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--muted); line-height: 1.5; text-align: center;
+    }
+
+    h1 {
+      font-weight: 400; font-size: clamp(2.6rem, 9vw, 3.8rem);
+      line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 6px;
+    }
+    .nick { margin: 0 0 22px; color: var(--muted); font-style: italic; }
+
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .tag {
+      border: 1px solid var(--line); color: var(--tag);
+      padding: 10px 14px; line-height: 1;
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 8px 0 12px; }
+    h2 {
+      font-family: var(--mono); font-weight: 400;
+      font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--tag); margin: 44px 0 14px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--line);
+    }
+
+    /* info rows */
+    dl { margin: 0; }
+    .row { display: flex; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    dt {
+      flex: 0 0 150px;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); padding-top: 6px;
+    }
+    dd { margin: 0; flex: 1; }
+    @media (max-width: 520px) {
+      .row { flex-direction: column; gap: 0; }
+      dt { flex: none; padding-top: 0; }
+    }
+
+    .views {
+      margin: 8px 0 0; padding: 14px 22px;
+      background: var(--box); border-left: 4px solid var(--tag);
+      font-size: 1.4rem;
+    }
+    .views small { display: block; color: var(--muted); font-size: 1rem; font-style: italic; }
+
+    ul.plain { list-style: none; margin: 0; padding: 0; }
+    ul.plain li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    ul.plain li:last-child { border-bottom: 0; }
+    .by { display: block; color: var(--muted); font-size: 1.05rem; font-style: italic; line-height: 1.4; }
+    .note { color: var(--muted); font-size: 1.05rem; font-style: italic; }
+
+    .larp {
+      margin: 44px 0 0; padding: 18px 22px; border: 1px dashed var(--line);
+      text-align: center; font-style: italic; color: var(--muted);
+    }
+
+    footer {
+      margin-top: 40px; border-top: 1px solid var(--line); padding: 28px 0 48px;
+      font-family: var(--mono); font-size: .78rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    footer a { color: var(--tag); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">&larr; All rebuttals</a>
+
+    <header>
+
+      <!-- ===== PROFILE PICTURE =====
+           Put your photo in the same folder and name it  pfp.jpg
+           (or change src="..." below to your file name, e.g. me.png).
+           Until then, the "add photo" placeholder shows. -->
+      <div class="pfp">
+        <span class="ph">add<br>photo</span>
+        <img src="pfp.jpg" alt="trakver09" onerror="this.style.display='none'">
+      </div>
+
+      <h1>trakver09</h1>
+      <p class="nick">a.k.a. kyro / tkv / tkvv / tkvvv / tkvvvv</p>
+
+      <div class="tags">
+        <span class="tag">INTP 5w4</span>
+        <span class="tag">Agnostic Atheist</span>
+        <span class="tag">Moral Anti-Realist</span>
+      </div>
+    </header>
+
+    <!-- ===== BASIC INFO ===== -->
+    <section>
+      <h2>About</h2>
+      <dl>
+        <div class="row"><dt>Name</dt><dd>trakver09</dd></div>
+        <div class="row"><dt>SM nicknames</dt><dd>kyro / tkv / tkvv / tkvvv / tkvvvv</dd></div>
+        <div class="row"><dt>MBTI</dt><dd>INTP 5w4</dd></div>
+        <div class="row"><dt>Age</dt><dd>15</dd></div>
+        <div class="row"><dt>Nationality</dt><dd>Filipino</dd></div>
+        <div class="row"><dt>Sex</dt><dd>Male</dd></div>
+        <div class="row"><dt>Interests</dt><dd>Biology, Cosmology, Theology</dd></div>
+        <div class="row"><dt>Beliefs</dt><dd>Agnostic atheist</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== VIEWS ===== -->
+    <section>
+      <h2>Views</h2>
+      <div class="views">
+        Moral anti-realist
+        <small>Realist in general, but not a moral realist.</small>
+      </div>
+    </section>
+
+    <!-- ===== PHILOSOPHICAL STANCE ===== -->
+    <section>
+      <h2>Philosophical stance</h2>
+      <dl>
+        <div class="row"><dt>Epistemology</dt><dd>Primary focus: knowledge and belief.</dd></div>
+        <div class="row"><dt>Metaphysics</dt><dd>My favorite area.</dd></div>
+        <div class="row"><dt>Moral ethics</dt><dd>My weakest area, since I'm an anti-realist.</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== CURRENTLY STUDYING ===== -->
+    <section>
+      <h2>Currently studying</h2>
+      <ul class="plain">
+        <li>Metaphysics</li>
+        <li>History of Christianity</li>
+        <li>The Bible, its historicity, and other biblical topics</li>
+        <li>History of the Catholic Church</li>
+        <li>Atheist Handbook of the Old Testament <span class="by">Connecting the Old Testament to Mesopotamia</span></li>
+        <!-- To add one: copy a <li>...</li> line and change the text -->
+      </ul>
+    </section>
+
+    <!-- ===== BOOKS ===== -->
+    <section>
+      <h2>Books</h2>
+      <ul class="plain">
+        <li>Scholastic Metaphysics <span class="by">Edward Feser</span></li>
+        <li>The Ego and Its Own <span class="by">Max Stirner</span></li>
+        <li>Arguing About Gods <span class="by">Graham Oppy</span></li>
+        <li>Atheism: The Basics <span class="by">Graham Oppy</span></li>
+        <li>The Philosophical Introduction <span class="by">Author unknown</span></li>
+        <li>The Ignatius Catholic Study Bible <span class="by">Scott Hahn &amp; Curtis Mitch (editors)</span></li>
+        <li>The Trouble with Being Born <span class="by">Emil Cioran</span></li>
+        <li>The God Delusion <span class="by">Richard Dawkins</span></li>
+        <li>Critique of Pure Reason <span class="by">Immanuel Kant</span></li>
+        <!-- To add one: copy a <li>...</li> line and change the title and author -->
+      </ul>
+    </section>
+
+    <div class="larp">And yes, I am larping.</div>
+
+    <footer>
+      <a href="index.html">&larr; Back to all rebuttals</a>
+    </footer>
+
+  </div>
+</body>
+</html>
